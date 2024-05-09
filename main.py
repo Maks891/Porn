@@ -15,7 +15,7 @@ import requests
 
 
 
-bot = Bot(token='6860621453:AAEEeTKl67NTo-XgOFOie0oEJ1VNU7tfgNI')
+bot = Bot(token='7125915987:AAFiNdr8Dw1S_KhwzpWG3Ycq2imhPbrOgGU')
 dp = Dispatcher(bot)
 
 # datebase
