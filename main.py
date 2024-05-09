@@ -2319,14 +2319,6 @@ async def prof_user(message: types.Message):
             bank = round(int(bank[0]))
             bank2 = '{:,}'.format(bank)
             c = 999999999999999999999999
-            if skin_id == 1:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s1.png', 'rb')
-            if skin_id == 2:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s2.png', 'rb')
-            if skin_id == 3:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s3.png', 'rb')
-            if skin_id == 4:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s4.png', 'rb')
             else:
                 pass
             if balance >= 999999999999999999999999:
@@ -2347,7 +2339,7 @@ async def prof_user(message: types.Message):
                 biktoin = 999999999999999999999999
                 cursor.execute(f'UPDATE users SET bitkoin = {999999999999999999999999}  WHERE user_id = ?', (user_id,))
                 connect.commit()
-            await bot.send_photo(message.chat.id,skin_id2,
+            await bot.send_message(message.chat.id,
                                  f"👫Ник: {user_name} \n👔Skin ID: {skin_id}\n💰 Деньги: {balance2}$\n🏦Банк: {bank2}$\n💽Биткоины: {bitkoin2}🌐")
         ################################################КУПИТЬ Энергию######################################################
         if message.text.startswith('Купить энергию'):
@@ -2461,7 +2453,7 @@ async def prof_user(message: types.Message):
                 work2 = 'Сантехник🛠'
                 zp = '532,000,000$'
             if work == 5:
-                work2 = 'Електрик💡'
+                work2 = 'Электрик💡'
                 zp = '1,236,000,000$'
             if work == 6:
                 work2 = 'Пожарник🧯'
@@ -4137,7 +4129,7 @@ async def prof_user(message: types.Message):
 
 Наш telegram канал @slivmens
 ''', parse_mode='html')
-        if message.text.lower() == 'Центр занятости':
+        if message.text.lower() == 'центр занятости':
             name1 = message.from_user.get_mention(as_html=True)
             user_name = message.from_user.full_name
             level = cursor.execute("SELECT level from users where user_id = ?", (message.from_user.id,)).fetchone()
@@ -5388,7 +5380,6 @@ async def prof_user(message: types.Message):
     
     🛒 Для покупки дома введите "Купить дом [номер]"
     
-    Наш telegram канал @slivmens
     ''', parse_mode='html')
         #######################################################КЕЙСЫ############################################################
         if message.text.lower() in ['Кейсы', 'кейсы']:
@@ -6042,7 +6033,6 @@ async def prof_user(message: types.Message):
     
     🛒 Для покупки яхты введите "Купить яхту [номер]"
     
-    Наш telegram канал @slivmens
     ''', parse_mode='html')
         ######################################################ВЕРТОЛЁТЫ#########################################################
         if message.text.startswith("Купить вертолёт"):
