@@ -3557,7 +3557,7 @@ async def prof_user(message: types.Message):
                                    parse_mode='html')
 
         #########################################РАБОТЫ###########################################
-        if message.text.lower() == 'Уволиться':
+        if message.text.lower() == 'уволиться':
             name = message.from_user.get_mention(as_html=True)
             user_id = message.from_user.id
 
