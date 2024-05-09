@@ -2319,7 +2319,6 @@ async def prof_user(message: types.Message):
             bank = round(int(bank[0]))
             bank2 = '{:,}'.format(bank)
             c = 999999999999999999999999
-            else:
                 pass
             if balance >= 999999999999999999999999:
                 balance = 999999999999999999999999
