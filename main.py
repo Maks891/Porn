@@ -142,14 +142,6 @@ async def stats(message):
      sqlite_select_query = """SELECT * from users"""
      cursor.execute(sqlite_select_query)
      records = cursor.fetchall()
-
-@dp.message_handler(Command('shutdown'))
-async def shutdown_bot(message: types.Message):
-    """
-    Отключает бота по команде /shutdown.
-    """
-    await message.answer("Бот успешно выключен.")
-    await dp.shutdown()
     
      await bot.send_message(message.chat.id, f"{user_name}, статистика бота  📊\n🤵 | Игроков: {len(records)}", parse_mode='html')
 
