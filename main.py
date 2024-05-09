@@ -1,18 +1,6 @@
 # -*-coding: utf-8 -*-
-import logging
-import sqlite3
-import random
-import time
-from aiogram import Bot, Dispatcher, executor, types
-from aiogram.utils.markdown import quote_html
-from aiogram.types import ContentTypes
-from aiogram.types import ContentType
-from datetime import datetime, timedelta
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from decimal import Decimal
-from bs4 import BeautifulSoup
-import requests
-
+from commands.help import *
+from commands
 # bot init
 bot = Bot(token='6860621453:AAEEeTKl67NTo-XgOFOie0oEJ1VNU7tfgNI')
 dp = Dispatcher(bot)
