@@ -2313,7 +2313,6 @@ async def prof_user(message: types.Message):
             bank = round(int(bank[0]))
             bank2 = '{:,}'.format(bank)
             c = 999999999999999999999999
-                pass
             if balance >= 999999999999999999999999:
                 balance = 999999999999999999999999
                 cursor.execute(f'UPDATE users SET balance = {999999999999999999999999}  WHERE user_id = ?', (user_id,))
