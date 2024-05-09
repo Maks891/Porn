@@ -4427,22 +4427,7 @@ async def prof_user(message: types.Message):
                 connect.commit()
             else:
                 await bot.send_message(message.chat.id, f'{user_name}, Доступ к данной команде ограничен. Для покупки администратора обратитесь к создателю 👨‍🦰', parse_mode='html')
-        if message.text.lower() == 'Выдать админа' :
-            user_name = message.from_user.get_mention(as_html=True)
-            msg = message
-            reply_user_name = message.reply_to_message.from_user.get_mention(as_html=True)
-            win = ['🙂', '😋', '😄', '🤑', '😃']
-            rwin = random.choice(win)
-            reply_user_id = msg.reply_to_message.from_user.id
-            user_id = msg.from_user.id
-            user_status = cursor.execute("SELECT user_status from users where user_id = ?",
-                                         (message.from_user.id,)).fetchone()
-            if user_status[0] == 'Rab':
-                await bot.send_message(message.chat.id, f'Вы успешно выдали администратора {reply_user_name} {rwin}', parse_mode='html')
-                cursor.execute(f'UPDATE users SET user_status = "Admin"  WHERE user_id = "{reply_user_id}"')
-                connect.commit()
-            else:
-                await bot.send_message(message.chat.id, f'{user_name}, Доступ к данной команде ограничен. Для покупки администратора обратитесь к создателю 👨‍🦰', parse_mode='html')
+        
         if message.text.lower() == 'выдать адм' :
             user_name = message.from_user.get_mention(as_html=True)
             msg = message
