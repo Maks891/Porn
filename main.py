@@ -2313,15 +2313,6 @@ async def prof_user(message: types.Message):
             bank = round(int(bank[0]))
             bank2 = '{:,}'.format(bank)
             c = 999999999999999999999999
-            if skin_id == 1:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s1.png', 'rb')
-            if skin_id == 2:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s2.png', 'rb')
-            if skin_id == 3:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s3.png', 'rb')
-            if skin_id == 4:
-                skin_id2 = open('C:/Users/123/Downloads/Telegram Desktop/ОБНОВА/Skins/s4.png', 'rb')
-            else:
                 pass
             if balance >= 999999999999999999999999:
                 balance = 999999999999999999999999
@@ -2341,7 +2332,7 @@ async def prof_user(message: types.Message):
                 biktoin = 999999999999999999999999
                 cursor.execute(f'UPDATE users SET bitkoin = {999999999999999999999999}  WHERE user_id = ?', (user_id,))
                 connect.commit()
-            await bot.send_photo(message.chat.id,skin_id2,
+            await bot.send_message(message.chat.id,
                                  f"👫Ник: {user_name} \n👔Skin ID: {skin_id}\n💰 Деньги: {balance2}$\n🏦Банк: {bank2}$\n💽Биткоины: {bitkoin2}🌐")
         ################################################КУПИТЬ Энергию######################################################
         if message.text.startswith('Купить энергию'):
@@ -4421,6 +4412,38 @@ async def prof_user(message: types.Message):
                 connect.commit()
             else:
                 await bot.send_message(message.chat.id, f'{user_name}, Доступ к данной команде ограничен. Для покупки администратора обратитесь к создателю 👨‍🦰', parse_mode='html')
+        if message.text.lower() == 'выдать раба' :
+            user_name = message.from_user.get_mention(as_html=True)
+            msg = message
+            reply_user_name = message.reply_to_message.from_user.get_mention(as_html=True)
+            win = ['🙂', '😋', '😄', '🤑', '😃']
+            rwin = random.choice(win)
+            reply_user_id = msg.reply_to_message.from_user.id
+            user_id = msg.from_user.id
+            user_status = cursor.execute("SELECT user_status from users where user_id = ?",
+                                         (message.from_user.id,)).fetchone()
+            if user_status[0] == 'Player':
+                await bot.send_message(message.chat.id, f'Вы успешно выдали рабство игроку {reply_user_name} {rwin}', parse_mode='html')
+                cursor.execute(f'UPDATE users SET user_status = "Rab"  WHERE user_id = "{reply_user_id}"')
+                connect.commit()
+            else:
+                await bot.send_message(message.chat.id, f'{user_name}, Доступ к данной команде ограничен. Для покупки администратора обратитесь к создателю 👨‍🦰', parse_mode='html')
+         if message.text.lower() == 'Выдать админа' :
+            user_name = message.from_user.get_mention(as_html=True)
+            msg = message
+            reply_user_name = message.reply_to_message.from_user.get_mention(as_html=True)
+            win = ['🙂', '😋', '😄', '🤑', '😃']
+            rwin = random.choice(win)
+            reply_user_id = msg.reply_to_message.from_user.id
+            user_id = msg.from_user.id
+            user_status = cursor.execute("SELECT user_status from users where user_id = ?",
+                                         (message.from_user.id,)).fetchone()
+            if user_status[0] == 'Rab':
+                await bot.send_message(message.chat.id, f'Вы успешно выдали администратора {reply_user_name} {rwin}', parse_mode='html')
+                cursor.execute(f'UPDATE users SET user_status = "Admin"  WHERE user_id = "{reply_user_id}"')
+                connect.commit()
+            else:
+                await bot.send_message(message.chat.id, f'{user_name}, Доступ к данной команде ограничен. Для покупки администратора обратитесь к создателю 👨‍🦰', parse_mode='html')
         if message.text.lower() == 'выдать адм' :
             user_name = message.from_user.get_mention(as_html=True)
             msg = message
@@ -4435,9 +4458,7 @@ async def prof_user(message: types.Message):
                 await bot.send_message(message.chat.id, f'Вы успешно выдали администратора игроку {reply_user_name} {rwin}', parse_mode='html')
                 cursor.execute(f'UPDATE users SET user_status = "Admin"  WHERE user_id = "{reply_user_id}"')
                 connect.commit()
-            else:
-                await bot.send_message(message.chat.id, f'{user_name}, Доступ к данной команде ограничен. Для покупки администратора обратитесь к создателю 👨‍🦰', parse_mode='html')
-        if message.text.lower() == 'unban':
+         if message.text.lower() == 'unban':
             user_name = message.from_user.get_mention(as_html=True)
             msg = message
             reply_user_name = message.reply_to_message.from_user.get_mention(as_html=True)
