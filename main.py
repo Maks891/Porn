@@ -135,14 +135,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS ban_list(
 # start command
 @dp.message_handler(text=['Статистика бота','статистика бота'])
 async def stats(message):
-     user_name = cursor.execute("SELECT user_name from users where user_id = ?",(message.from_user.id,)).fetchone()
-     user_name = str(user_name[0])
-    
-     sqlite_select_query = """SELECT * from users"""
-     cursor.execute(sqlite_select_query)
-     records = cursor.fetchall()
-
-     await bot.send_message(message.chat.id, f"{user_name}, статистика бота  📊\n🤵 | Игроков: {len(records)}", parse_mode='html')
+    await statics_fgm(message) 
 
 @dp.message_handler(lambda message: message.text.lower() == 'игра')
 async def process_command_1(message: types.Message):
