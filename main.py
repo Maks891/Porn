@@ -1,6 +1,6 @@
 import asyncio
 
-from aiogram import Bot, F, Dispatcher
+from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery, FSInputFile
 from database import database
