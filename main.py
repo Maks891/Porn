@@ -12,16 +12,10 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from decimal import Decimal
 from bs4 import BeautifulSoup
 import requests
-from pycoingecko import CoinGeckoAPI
-
-logging.basicConfig(level=logging.INFO)
 
 
-# CoinGeckoAPI
-api = CoinGeckoAPI()
 
-# bot init
-bot = Bot(token='123123123123')
+bot = Bot(token='6860621453:AAEEeTKl67NTo-XgOFOie0oEJ1VNU7tfgNI')
 dp = Dispatcher(bot)
 
 # datebase
