@@ -1,6 +1,6 @@
 # -*-coding: utf-8 -*-
 from commands.help import *
-from commands
+
 # bot init
 bot = Bot(token='6860621453:AAEEeTKl67NTo-XgOFOie0oEJ1VNU7tfgNI')
 dp = Dispatcher(bot)
