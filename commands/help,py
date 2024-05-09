@@ -1,1 +1,11 @@
-s
+from commands.db import register_users, getinlinename
+
+async def statics_fgm(message):
+    user_name = cursor.execute("SELECT user_name from users where user_id = ?",(message.from_user.id,)).fetchone()
+     user_name = str(user_name[0])
+    
+     sqlite_select_query = """SELECT * from users"""
+     cursor.execute(sqlite_select_query)
+     records = cursor.fetchall()
+
+     await bot.send_message(message.chat.id, f"{user_name}, статистика бота  📊\n🤵 | Игроков: {len(records)}", parse_mode='html')
