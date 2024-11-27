@@ -55,6 +55,6 @@ support_db - имя базы данных
 """
 
 MySQL = ['localhost', 'user', 'password', 'support_db'] 
-TOKEN = ''
-ADMIN_ID = ''
+TOKEN = '7692626473:AAEgJxf5PS_RG0_geBIqP3V8UU1uKlzmwl8'
+ADMIN_ID = '6888643375'
 PROXY_URL = ''
